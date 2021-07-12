@@ -1,0 +1,96 @@
+body {
+    background: #048abf;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif; }
+  
+  .intro {
+    margin: 30px 0px;
+    font-weight: bold; }
+  
+  h1 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 800; }
+  
+  p {
+    font-weight: 600; }
+  
+  #first {
+    margin-top: 10px;
+    color: #FFCD5D; }
+  
+  #second {
+    color: #51DF70; }
+  
+  #third {
+    color: #025F70;
+    margin-bottom: 30px; }
+  
+  #enter {
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #04A1BF;
+    background-color: #025F70;
+    transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    -moz-transition: all 0.75s ease;
+    -ms-transition: all 0.75s ease;
+    -o-transition: all 0.75 ease;
+    font-weight: normal; }
+  
+  #enter:hover {
+    background-color: #02798F;
+    color: #FFCD5D; }
+  
+  ul {
+    text-align: left;
+    margin-top: 20px; }
+  
+  li {
+    list-style: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 600;
+    border: 2px solid #025f70;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background: #4EB9CD;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+       }
+  
+  li:hover {
+    background: #025f70; 
+    background: -webkit-gradient(linear, left top, left bottom, from(#025f70), to(#76CFE0));
+      background: -webkit-linear-gradient(#025f70, #76CFE0);
+      background-image: -moz-linear-gradient(top, #025f70, #76CFE0);
+      background-image: -moz-gradient(top, #025f70, #76CFE0);}
+  li > button {
+    font-weight: normal;
+    background: none;
+    border: none;
+    float: right;
+    color: #025f70;
+    font-weight: 800; }
+  
+  input {
+    border-radius: 5px;
+    min-width: 65%;
+    padding: 5px;
+    border: none; }
+  
+  .done {
+    background: #51DF70 !important;
+    box-shadow: 0 3px rgb(147, 144, 0) inset;
+    color: #00891E; }
+  
+  .delete {
+    display: none; }
+  .hide{
+    opacity: 0.5;
+  }

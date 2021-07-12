@@ -1,47 +1,67 @@
-let buttonEnter = document.getElementById('enter');
-let userInput = document.getElementById('userInput');
-let ul = document.querySelector('ul'); 
-
-function inputLength() {
-    return userInput.value.length > 0
-}
-
-function createTodo() {
-    let li = document.createElement('li');
-    li.appendChild(document.createTextNode(userInput.value));
-    ul.appendChild(li);
-    userInput.value = '';
-
-    let deleteButton = document.createElement('button');
-    deleteButton.appendChild(document.createTextNode('x'));
-    li.appendChild(deleteButton);
-    deleteButton.addEventListener('click', deleteTodoItem)
-
-    let doneButton = document.createElement('button');
-    doneButton.appendChild(document.createTextNode('✓'));
-    li.appendChild(doneButton);
-    doneButton.addEventListener('click', doneTodoItem)
+$(function(){
+    let buttonEnter = $('#enter');
+    let userInput = $('#userInput');
+    let ul = $('ul');
+    let localStorage= window.localStorage;
+    let todoMap=[
+        {
+            ind:1,
+            text:'example'
+        }
+    ]
     
-    function deleteTodoItem() {
-        li.classList.add('delete');
+    function inputLength() {
+        return !!userInput.val();
     }
+    
+    function createTodo() {
+        let li = $("<li>");
+        li.append(document.createTextNode(userInput.val()));
+        ul.append(li);
 
-    function doneTodoItem () {
-        li.classList.toggle('done');
+        todoMap.push({
+            ind:todoMap.length+1,
+            text:userInput.val()
+        })
+        
+        localStorage.setItem('Todo_list',JSON.stringify(todoMap));
+        userInput.val('');
+    
+        let deleteButton = $('<button>');
+        deleteButton.append(document.createTextNode('X'));
+        li.append(deleteButton);
+        deleteButton.click(deleteTodoItem);
+    
+        let colorButton = $('<button>');
+        colorButton.append(document.createTextNode('✓'));
+        li.append(colorButton);
+        colorButton.click(doneTodoItem);
+    
+        function deleteTodoItem() {
+            li.animate({
+                'margin-left':'500px',
+                'margin-right':'500px',
+                'opacity':'0.5',
+            },{duration:2000,queue:true});  
+        }
+    
+        function doneTodoItem() { 
+            li.toggleClass('done').toggleClass('hide');
+        }
     }
-}
-
-function changeListAfterButtonPress(event) {
-    if (inputLength()) {
-        createTodo();
+    
+    function changeListAfterKeyPress(event) {
+        if (inputLength() && event.which === 13) {
+            createTodo();
+        }
     }
-}
-
-function changeListAfterKeypress(event) {
-    if (inputLength() && event.which === 13) {
-        createTodo();
+    
+    function changeListAfterButtonPress() {
+        if (inputLength()) {
+            createTodo();
+        }
     }
-}
-
-userInput.addEventListener('keypress', changeListAfterKeypress);
-buttonEnter.addEventListener('click', changeListAfterButtonPress);
+    
+    buttonEnter.click(changeListAfterButtonPress);
+    userInput.keypress(changeListAfterKeyPress);
+    })  
