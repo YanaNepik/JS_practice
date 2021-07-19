@@ -39,8 +39,8 @@ $(function(){
     
         function deleteTodoItem() {
             li.animate({
-                'margin-left':'500px',
-                'margin-right':'500px',
+                'margin-left':'800px',
+                'margin-right':'800px',
                 'opacity':'0.5',
             },{duration:2000,queue:true});  
         }
